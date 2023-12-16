@@ -19,4 +19,5 @@ Some files in `$c` include headers/source files from `$b`/`$a` to avoid duplicat
 We haven't said what linker script is used to link the kernel proper, `vmlinux`. The real kernel is linked with `$a/kernel/vmlinux.lds`, which is generated from `$a/kernel/vmlinux.lds.S`.
 
 A diagram to explain some of the above:
-![linux-build-process](image/linux-build.svg)
+
+![linux-build-process](image/linux-build.png)
