@@ -1,0 +1,88 @@
+Summary of subdirectories under `fs/`:
+- Misc
+    - autofs: automounter
+    - dlm: distributed lock manager
+    - lockd: file locking
+    - fuse: fs in userspace
+    - iomap: ??
+    - jbd2: journaling for ext4 etc
+    - netfs: network fs support
+    - nls: native language support
+    - unicode: different from nls, I guess
+    - notify: various notification APIs
+    - pstore: save dmesg tail in uefi etc. on crash
+    - quota: quota support
+    - verity: build Merkle tree for verity-enabled file
+- Caching
+    - cachefiles: cache backend
+    - fscache: cache for nfs
+- Encryption
+    - crypto: encryption for ext4 etc
+    - ecryptfs: full blown fs
+- Pseudo FS
+    - configfs: converse of sysfs
+    - debugfs: export any information to user space that doesn't fit in /proc or sysfs, see [here](https://docs.kernel.org/filesystems/debugfs.html).
+    - tracefs: used by ftrace
+    - devpts: `/dev/pts`
+    - efivarfs: EFI variables
+    - exportfs: related to nfs exports
+    - hostfs: mount host fs from user mode linux
+    - vboxsf: similar to hostfs, for VirtualBox
+    - kernfs: code refactored from sysfs to be reused by other pseudo fs
+    - proc: process info, and a lot more
+    - sysfs: view internal kernel objects
+    - ramfs: page cache without backing store, basis for tmpfs which adds size limit
+- RAM based fs
+    - cramfs
+    - squashfs
+- Stackable fs
+    - overlayfs: combine two fs
+- Networked fs
+    - 9p
+    - nfs
+    - smb
+    - gfs2
+    - ocfs2
+    - coda
+- "Normal" fs
+    - adfs
+    - affs
+    - afs
+    - bcachefs
+    - befs
+    - bfs
+    - btrfs
+    - ceph
+    - dlm
+    - efs
+    - erofs
+    - exfat
+    - ext2
+    - ext4
+    - f2fs
+    - fat
+    - freevxfs
+    - hfs
+    - hfsplus
+    - hpfs
+    - hugetlbfs
+    - isofs
+    - jffs2
+    - jfs
+    - minix
+    - nilfs2
+    - ntfs
+    - ntfs3
+    - omfs
+    - openpromfs
+    - orangefs
+    - qnx4
+    - qnx6
+    - reiserfs
+    - romfs
+    - sysv
+    - ubifs
+    - udf
+    - ufs
+    - xfs
+    - zonefs
