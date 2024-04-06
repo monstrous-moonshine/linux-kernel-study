@@ -30,5 +30,5 @@ config TMPFS
 ```
 So, to summarize:
 - `!SHMEM`: No shmem, and consequently no tmpfs
-- `SHMEM && !TMPFS`: tmpfs still appears in `/proc/filesystems`, but it can't be mounted?
+- `SHMEM && !TMPFS`: tmpfs still appears in `/proc/filesystems`, but it can't be mounted, because it's marked with SB_NOUSER in `mm/shmem.c:shmem_fill_super()`
 - `SHMEM && TMPFS`: has tmpfs
