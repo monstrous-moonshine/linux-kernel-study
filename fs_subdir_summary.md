@@ -32,6 +32,7 @@ Summary of subdirectories under `fs/`:
     - proc: process info, and a lot more
     - sysfs: view internal kernel objects
     - ramfs: page cache without backing store, basis for tmpfs which adds size limit
+    - hugetlbfs: ramfs for hugetlb pages?
 - RAM based fs
     - cramfs
     - squashfs
@@ -53,7 +54,6 @@ Summary of subdirectories under `fs/`:
     - bfs
     - btrfs
     - ceph
-    - dlm
     - efs
     - erofs
     - exfat
@@ -65,7 +65,6 @@ Summary of subdirectories under `fs/`:
     - hfs
     - hfsplus
     - hpfs
-    - hugetlbfs
     - isofs
     - jffs2
     - jfs
