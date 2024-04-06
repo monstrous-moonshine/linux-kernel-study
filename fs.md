@@ -29,6 +29,6 @@ config TMPFS
 	  See <file:Documentation/filesystems/tmpfs.rst> for details.
 ```
 So, to summarize:
-- `!SHMEM`: No shmem, and consequently no tmpfs
+- `!SHMEM && !TMPFS`: tmpfs is provided by ramfs
 - `SHMEM && !TMPFS`: tmpfs still appears in `/proc/filesystems`, but it can't be mounted, because it's marked with SB_NOUSER in `mm/shmem.c:shmem_fill_super()`
-- `SHMEM && TMPFS`: has tmpfs
+- `SHMEM && TMPFS`: tmpfs is provided by shmem
