@@ -16,10 +16,14 @@ For the sake of completeness, let's mention that `$b/setup.bin` is created from 
 
 `$c/vmlinux` is created with the linker script `$c/vmlinux.lds`, which is itself generated from `$c/vmlinux.lds.S` with `gcc -E` (preprocess only). `$b/setup.elf` is created with `$b/setup.ld`.
 
-Some files in `$c` include headers/source files from `$b`/`$a` to avoid duplicating code. Additionally, `$c/misc.c`, which contains code to decompress the kernel proper, needs to know the size of the uncompressed kernel. For this it includes `$b/voffset.h`. In the same way, `$b/header.S` needs the size of the compressed kernel, for which it includes `$b/zoffset.h`. In general, the prefix `z` is applied to the compressed kernel, and the prefix `v` is applied to the uncompressed kernel. These headers are created from the corresponding kernels (`zoffset.h` from `$c/vmlinux`, `voffset.h` from `vmlinux`) with `nm` and `sed`. `$c/misc.c` includes the decompression code from `lib/decompress_inflate.c`. It defines `STATIC` before including this file so that its dependencies are in turn included statically.
-
 We haven't said what linker script is used to link the real kernel, `vmlinux`. The real kernel is linked with `$a/kernel/vmlinux.lds`, which is generated from `$a/kernel/vmlinux.lds.S`.
 
 A diagram to summarize some of the above:
 
 ![linux-build-process](image/linux-build.png)
+
+Some files in `$c` include headers/source files from `$b`/`$a` to avoid duplicating code. Additionally, `$c/misc.c`, which contains code to decompress the kernel proper, needs to know the size of the uncompressed kernel. For this it includes `$b/voffset.h`. In the same way, `$b/header.S` needs the size of the compressed kernel, for which it includes `$b/zoffset.h`. In general, the prefix `z` is applied to the compressed kernel, and the prefix `v` is applied to the uncompressed kernel. These headers are created from the corresponding kernels (`zoffset.h` from `$c/vmlinux`, `voffset.h` from `vmlinux`) with `nm` and `sed`. `$c/misc.c` includes the decompression code from `lib/decompress_inflate.c`. It defines `STATIC` before including this file so that its dependencies are in turn included statically.
+
+A diagram to summarize the above paragraph:
+
+![linux-build-headers](image/linux-build-headers.png)
